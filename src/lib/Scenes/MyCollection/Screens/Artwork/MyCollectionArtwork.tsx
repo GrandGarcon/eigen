@@ -4,9 +4,12 @@ import { StickyTabPage } from "lib/Components/StickyTabPage/StickyTabPage"
 import { goBack, navigate, popToRoot } from "lib/navigation/navigate"
 import { useFeatureFlag } from "lib/store/GlobalStore"
 import { PlaceholderBox, ProvidePlaceholderContext } from "lib/utils/placeholders"
+import { compact } from "lodash"
 import { Flex, Text } from "palette/elements"
 import React, { Suspense, useCallback } from "react"
 import { graphql, useLazyLoadQuery } from "react-relay"
+import { MyCollectionArtworkAbout } from "./MyCollectionArtworkAbout"
+import { MyCollectionArtworkInsights } from "./MyCollectionArtworkInsights"
 import { MyCollectionArtworkHeader } from "./NewComponents/NewMyCollectionArtworkHeader"
 import { OldMyCollectionArtworkQueryRenderer } from "./OldMyCollectionArtwork"
 
@@ -23,6 +26,8 @@ const MyCollectionArtworkScreenQuery = graphql`
       consignmentSubmission {
         inProgress
       }
+      ...MyCollectionArtworkInsights_artwork
+      ...MyCollectionArtworkAbout_artwork
     }
   }
 `
@@ -53,6 +58,19 @@ const MyCollectionArtwork: React.FC<MyCollectionArtworkScreenProps> = ({ artwork
 
   const displayEditButton = !data.artwork.consignmentSubmission?.inProgress
 
+  // TODO: Hide insight tabs if not insights available
+  const tabs = compact([
+    {
+      title: Tab.insights,
+      content: <MyCollectionArtworkInsights artwork={data.artwork} />,
+      initial: true,
+    },
+    {
+      title: Tab.about,
+      content: <MyCollectionArtworkAbout artwork={data.artwork} />,
+    },
+  ])
+
   return (
     <Flex flex={1}>
       <FancyModalHeader
@@ -61,25 +79,7 @@ const MyCollectionArtwork: React.FC<MyCollectionArtworkScreenProps> = ({ artwork
         onRightButtonPress={displayEditButton ? handleEdit : undefined}
       />
       <StickyTabPage
-        tabs={[
-          {
-            title: Tab.insights,
-            content: (
-              <Flex>
-                <Text>Insights Tab</Text>
-              </Flex>
-            ),
-            initial: true,
-          },
-          {
-            title: Tab.about,
-            content: (
-              <Flex>
-                <Text>About Tab</Text>
-              </Flex>
-            ),
-          },
-        ]}
+        tabs={tabs}
         staticHeaderContent={<MyCollectionArtworkHeader artwork={data.artwork!} />}
       />
     </Flex>

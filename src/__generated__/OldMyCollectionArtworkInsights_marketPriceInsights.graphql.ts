@@ -4,14 +4,14 @@
 
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkInsights_marketPriceInsights = {
+export type OldMyCollectionArtworkInsights_marketPriceInsights = {
     readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkDemandIndex_marketPriceInsights" | "MyCollectionArtworkArtistMarket_marketPriceInsights">;
-    readonly " $refType": "MyCollectionArtworkInsights_marketPriceInsights";
+    readonly " $refType": "OldMyCollectionArtworkInsights_marketPriceInsights";
 };
-export type MyCollectionArtworkInsights_marketPriceInsights$data = MyCollectionArtworkInsights_marketPriceInsights;
-export type MyCollectionArtworkInsights_marketPriceInsights$key = {
-    readonly " $data"?: MyCollectionArtworkInsights_marketPriceInsights$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkInsights_marketPriceInsights">;
+export type OldMyCollectionArtworkInsights_marketPriceInsights$data = OldMyCollectionArtworkInsights_marketPriceInsights;
+export type OldMyCollectionArtworkInsights_marketPriceInsights$key = {
+    readonly " $data"?: OldMyCollectionArtworkInsights_marketPriceInsights$data | undefined;
+    readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkInsights_marketPriceInsights">;
 };
 
 
@@ -20,7 +20,7 @@ const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MyCollectionArtworkInsights_marketPriceInsights",
+  "name": "OldMyCollectionArtworkInsights_marketPriceInsights",
   "selections": [
     {
       "args": null,
@@ -36,5 +36,5 @@ const node: ReaderFragment = {
   "type": "MarketPriceInsights",
   "abstractKey": null
 };
-(node as any).hash = 'ea5927acbb87b7b8241ffc13e2827a1c';
+(node as any).hash = '124898c3a77c5b9186630725fd977720';
 export default node;

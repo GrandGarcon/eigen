@@ -1,17 +1,17 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash 4d8fa5dcd2401df8920c4a676fe4deb8 */
+/* @relayHash 75d7f831df34b2c5bb5a4ccde2cda408 */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type MyCollectionArtworkInsightsTestsQueryVariables = {};
 export type MyCollectionArtworkInsightsTestsQueryResponse = {
     readonly artwork: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkInsights_artwork">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkInsights_artwork">;
     } | null;
     readonly marketPriceInsights: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkInsights_marketPriceInsights">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkInsights_marketPriceInsights">;
     } | null;
 };
 export type MyCollectionArtworkInsightsTestsQuery = {
@@ -24,11 +24,11 @@ export type MyCollectionArtworkInsightsTestsQuery = {
 /*
 query MyCollectionArtworkInsightsTestsQuery {
   artwork(id: "some-artwork-id") {
-    ...MyCollectionArtworkInsights_artwork
+    ...OldMyCollectionArtworkInsights_artwork
     id
   }
   marketPriceInsights(artistId: "some-artist-id", medium: "painting") {
-    ...MyCollectionArtworkInsights_marketPriceInsights
+    ...OldMyCollectionArtworkInsights_marketPriceInsights
     id
   }
 }
@@ -140,7 +140,7 @@ fragment MyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsigh
   demandRank
 }
 
-fragment MyCollectionArtworkInsights_artwork on Artwork {
+fragment OldMyCollectionArtworkInsights_artwork on Artwork {
   sizeBucket
   medium
   artist {
@@ -153,7 +153,7 @@ fragment MyCollectionArtworkInsights_artwork on Artwork {
   ...MyCollectionArtworkDemandIndex_artwork
 }
 
-fragment MyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
+fragment OldMyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
   ...MyCollectionArtworkDemandIndex_marketPriceInsights
   ...MyCollectionArtworkArtistMarket_marketPriceInsights
 }
@@ -270,7 +270,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkInsights_artwork"
+            "name": "OldMyCollectionArtworkInsights_artwork"
           }
         ],
         "storageKey": "artwork(id:\"some-artwork-id\")"
@@ -286,7 +286,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkInsights_marketPriceInsights"
+            "name": "OldMyCollectionArtworkInsights_marketPriceInsights"
           }
         ],
         "storageKey": "marketPriceInsights(artistId:\"some-artist-id\",medium:\"painting\")"
@@ -736,7 +736,7 @@ return {
     ]
   },
   "params": {
-    "id": "4d8fa5dcd2401df8920c4a676fe4deb8",
+    "id": "75d7f831df34b2c5bb5a4ccde2cda408",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "artwork": {
@@ -890,5 +890,5 @@ return {
   }
 };
 })();
-(node as any).hash = 'cbb19540e1692c8f992a18876f4cd9ce';
+(node as any).hash = '8d5596cb9afba6134ccf427e61f6e42b';
 export default node;

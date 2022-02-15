@@ -8,7 +8,7 @@ import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollecti
 import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
 import { MyCollectionArtworkArtistMarketFragmentContainer } from "./MyCollectionArtworkArtistMarket"
 import { MyCollectionArtworkDemandIndexFragmentContainer } from "./MyCollectionArtworkDemandIndex"
-import { MyCollectionArtworkInsightsFragmentContainer } from "./MyCollectionArtworkInsights"
+import { OldMyCollectionArtworkInsightsFragmentContainer } from "./OldMyCollectionArtworkInsights"
 
 jest.unmock("react-relay")
 
@@ -20,11 +20,11 @@ describe("MyCollectionArtworkInsights", () => {
       query={graphql`
         query MyCollectionArtworkInsightsTestsQuery @relay_test_operation {
           artwork(id: "some-artwork-id") {
-            ...MyCollectionArtworkInsights_artwork
+            ...OldMyCollectionArtworkInsights_artwork
           }
 
           marketPriceInsights(artistId: "some-artist-id", medium: "painting") {
-            ...MyCollectionArtworkInsights_marketPriceInsights
+            ...OldMyCollectionArtworkInsights_marketPriceInsights
           }
         }
       `}
@@ -32,7 +32,7 @@ describe("MyCollectionArtworkInsights", () => {
       render={({ props }) => {
         if (props?.artwork && props?.marketPriceInsights) {
           return (
-            <MyCollectionArtworkInsightsFragmentContainer
+            <OldMyCollectionArtworkInsightsFragmentContainer
               marketPriceInsights={props.marketPriceInsights}
               artwork={props?.artwork}
             />

@@ -4,16 +4,16 @@
 
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkInsights_artwork = {
+export type MyCollectionArtworkAbout_artwork = {
     readonly id: string;
     readonly slug: string;
     readonly internalID: string;
-    readonly " $refType": "MyCollectionArtworkInsights_artwork";
+    readonly " $refType": "MyCollectionArtworkAbout_artwork";
 };
-export type MyCollectionArtworkInsights_artwork$data = MyCollectionArtworkInsights_artwork;
-export type MyCollectionArtworkInsights_artwork$key = {
-    readonly " $data"?: MyCollectionArtworkInsights_artwork$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkInsights_artwork">;
+export type MyCollectionArtworkAbout_artwork$data = MyCollectionArtworkAbout_artwork;
+export type MyCollectionArtworkAbout_artwork$key = {
+    readonly " $data"?: MyCollectionArtworkAbout_artwork$data | undefined;
+    readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkAbout_artwork">;
 };
 
 
@@ -22,7 +22,7 @@ const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MyCollectionArtworkInsights_artwork",
+  "name": "MyCollectionArtworkAbout_artwork",
   "selections": [
     {
       "alias": null,
@@ -49,5 +49,5 @@ const node: ReaderFragment = {
   "type": "Artwork",
   "abstractKey": null
 };
-(node as any).hash = '9e4de91d48985a490827a1d4e8725b9a';
+(node as any).hash = '22d2bb2421f248c03d7832025114ddf1';
 export default node;

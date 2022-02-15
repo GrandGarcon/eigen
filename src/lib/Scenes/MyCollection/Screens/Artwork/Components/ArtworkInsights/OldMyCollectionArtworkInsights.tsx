@@ -1,5 +1,5 @@
-import { MyCollectionArtworkInsights_artwork } from "__generated__/MyCollectionArtworkInsights_artwork.graphql"
-import { MyCollectionArtworkInsights_marketPriceInsights } from "__generated__/MyCollectionArtworkInsights_marketPriceInsights.graphql"
+import { OldMyCollectionArtworkInsights_artwork } from "__generated__/OldMyCollectionArtworkInsights_artwork.graphql"
+import { OldMyCollectionArtworkInsights_marketPriceInsights } from "__generated__/OldMyCollectionArtworkInsights_marketPriceInsights.graphql"
 import { ScreenMargin } from "lib/Scenes/MyCollection/Components/ScreenMargin"
 import { capitalize } from "lodash"
 import { Separator, Spacer, Text } from "palette"
@@ -11,12 +11,12 @@ import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCo
 import { MyCollectionArtworkArtistMarketFragmentContainer } from "./MyCollectionArtworkArtistMarket"
 import { MyCollectionArtworkDemandIndexFragmentContainer } from "./MyCollectionArtworkDemandIndex"
 
-interface MyCollectionArtworkInsightsProps {
-  artwork: MyCollectionArtworkInsights_artwork
-  marketPriceInsights: MyCollectionArtworkInsights_marketPriceInsights
+interface OldMyCollectionArtworkInsightsProps {
+  artwork: OldMyCollectionArtworkInsights_artwork
+  marketPriceInsights: OldMyCollectionArtworkInsights_marketPriceInsights
 }
 
-export const MyCollectionArtworkInsights: React.FC<MyCollectionArtworkInsightsProps> = ({
+export const OldMyCollectionArtworkInsights: React.FC<OldMyCollectionArtworkInsightsProps> = ({
   artwork,
   marketPriceInsights,
 }) => {
@@ -56,11 +56,11 @@ export const MyCollectionArtworkInsights: React.FC<MyCollectionArtworkInsightsPr
   )
 }
 
-export const MyCollectionArtworkInsightsFragmentContainer = createFragmentContainer(
-  MyCollectionArtworkInsights,
+export const OldMyCollectionArtworkInsightsFragmentContainer = createFragmentContainer(
+  OldMyCollectionArtworkInsights,
   {
     artwork: graphql`
-      fragment MyCollectionArtworkInsights_artwork on Artwork {
+      fragment OldMyCollectionArtworkInsights_artwork on Artwork {
         sizeBucket
         medium
         artist {
@@ -73,7 +73,7 @@ export const MyCollectionArtworkInsightsFragmentContainer = createFragmentContai
       }
     `,
     marketPriceInsights: graphql`
-      fragment MyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
+      fragment OldMyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
         ...MyCollectionArtworkDemandIndex_marketPriceInsights
         ...MyCollectionArtworkArtistMarket_marketPriceInsights
       }
