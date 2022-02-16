@@ -7,7 +7,7 @@ import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils"
 import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollectionArtworkArtistArticles"
 import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
 import { MyCollectionArtworkArtistMarketFragmentContainer } from "./MyCollectionArtworkArtistMarket"
-import { MyCollectionArtworkDemandIndexFragmentContainer } from "./MyCollectionArtworkDemandIndex"
+import { OldMyCollectionArtworkDemandIndexFragmentContainer } from "./OldMyCollectionArtworkDemandIndex"
 import { OldMyCollectionArtworkInsightsFragmentContainer } from "./OldMyCollectionArtworkInsights"
 
 jest.unmock("react-relay")
@@ -61,7 +61,9 @@ describe("MyCollectionArtworkInsights", () => {
     expect(text).toContain(
       '<mock-value-for-field-"sizebucket"> other by <mock-value-for-field-"name">'
     )
-    expect(wrapper.root.findByType(MyCollectionArtworkDemandIndexFragmentContainer)).toBeDefined()
+    expect(
+      wrapper.root.findByType(OldMyCollectionArtworkDemandIndexFragmentContainer)
+    ).toBeDefined()
     expect(wrapper.root.findByType(MyCollectionArtworkArtistMarketFragmentContainer)).toBeDefined()
     expect(
       wrapper.root.findByType(MyCollectionArtworkArtistAuctionResultsFragmentContainer)

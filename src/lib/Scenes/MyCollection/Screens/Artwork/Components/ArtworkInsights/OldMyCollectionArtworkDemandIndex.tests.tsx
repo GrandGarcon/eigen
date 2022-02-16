@@ -1,4 +1,3 @@
-import { MyCollectionArtworkDemandIndexTestsQuery } from "__generated__/MyCollectionArtworkDemandIndexTestsQuery.graphql"
 import { InfoButton } from "lib/Components/Buttons/InfoButton"
 import { extractText } from "lib/tests/extractText"
 import { mockTrackEvent } from "lib/tests/globallyMockedStuff"
@@ -6,25 +5,26 @@ import { renderWithWrappers } from "lib/tests/renderWithWrappers"
 import React from "react"
 import { graphql, QueryRenderer } from "react-relay"
 import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils"
+import { OldMyCollectionArtworkDemandIndexTestsQuery } from "__generated__/OldMyCollectionArtworkDemandIndexTestsQuery.graphql"
 import {
-  MyCollectionArtworkDemandIndexFragmentContainer,
+  OldMyCollectionArtworkDemandIndexFragmentContainer,
   tests,
-} from "./MyCollectionArtworkDemandIndex"
+} from "./OldMyCollectionArtworkDemandIndex"
 
 jest.unmock("react-relay")
 
-describe("MyCollectionArtworkDemandIndex", () => {
+describe("OldMyCollectionArtworkDemandIndex", () => {
   let mockEnvironment: ReturnType<typeof createMockEnvironment>
   const TestRenderer = () => (
-    <QueryRenderer<MyCollectionArtworkDemandIndexTestsQuery>
+    <QueryRenderer<OldMyCollectionArtworkDemandIndexTestsQuery>
       environment={mockEnvironment}
       query={graphql`
-        query MyCollectionArtworkDemandIndexTestsQuery @relay_test_operation {
+        query OldMyCollectionArtworkDemandIndexTestsQuery @relay_test_operation {
           artwork(id: "some-artwork-id") {
-            ...MyCollectionArtworkDemandIndex_artwork
+            ...OldMyCollectionArtworkDemandIndex_artwork
           }
           marketPriceInsights(artistId: "some-artist-id", medium: "painting") {
-            ...MyCollectionArtworkDemandIndex_marketPriceInsights
+            ...OldMyCollectionArtworkDemandIndex_marketPriceInsights
           }
         }
       `}
@@ -32,7 +32,7 @@ describe("MyCollectionArtworkDemandIndex", () => {
       render={({ props }) => {
         if (props?.marketPriceInsights && props?.artwork) {
           return (
-            <MyCollectionArtworkDemandIndexFragmentContainer
+            <OldMyCollectionArtworkDemandIndexFragmentContainer
               artwork={props.artwork}
               marketPriceInsights={props.marketPriceInsights}
             />

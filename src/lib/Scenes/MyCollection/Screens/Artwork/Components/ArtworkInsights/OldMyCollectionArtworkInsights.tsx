@@ -9,7 +9,7 @@ import { pluralizeMedium } from "../../../../utils/pluralizeArtworkMedium"
 import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollectionArtworkArtistArticles"
 import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
 import { MyCollectionArtworkArtistMarketFragmentContainer } from "./MyCollectionArtworkArtistMarket"
-import { MyCollectionArtworkDemandIndexFragmentContainer } from "./MyCollectionArtworkDemandIndex"
+import { OldMyCollectionArtworkDemandIndexFragmentContainer } from "./OldMyCollectionArtworkDemandIndex"
 
 interface OldMyCollectionArtworkInsightsProps {
   artwork: OldMyCollectionArtworkInsights_artwork
@@ -36,7 +36,7 @@ export const OldMyCollectionArtworkInsights: React.FC<OldMyCollectionArtworkInsi
             </Text>
           </ScreenMargin>
           <Spacer mt={3} />
-          <MyCollectionArtworkDemandIndexFragmentContainer
+          <OldMyCollectionArtworkDemandIndexFragmentContainer
             artwork={artwork}
             marketPriceInsights={marketPriceInsights}
           />
@@ -69,12 +69,12 @@ export const OldMyCollectionArtworkInsightsFragmentContainer = createFragmentCon
         ...MyCollectionArtworkArtistAuctionResults_artwork
         ...MyCollectionArtworkArtistArticles_artwork
         ...MyCollectionArtworkArtistMarket_artwork
-        ...MyCollectionArtworkDemandIndex_artwork
+        ...OldMyCollectionArtworkDemandIndex_artwork
       }
     `,
     marketPriceInsights: graphql`
       fragment OldMyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
-        ...MyCollectionArtworkDemandIndex_marketPriceInsights
+        ...OldMyCollectionArtworkDemandIndex_marketPriceInsights
         ...MyCollectionArtworkArtistMarket_marketPriceInsights
       }
     `,

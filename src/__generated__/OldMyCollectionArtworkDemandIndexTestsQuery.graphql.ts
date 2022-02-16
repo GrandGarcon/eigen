@@ -1,44 +1,44 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash 529f0a3da3f170f5454ab6542eac22f6 */
+/* @relayHash 50fb790a1c3e52364c963968eee2b71e */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkDemandIndexTestsQueryVariables = {};
-export type MyCollectionArtworkDemandIndexTestsQueryResponse = {
+export type OldMyCollectionArtworkDemandIndexTestsQueryVariables = {};
+export type OldMyCollectionArtworkDemandIndexTestsQueryResponse = {
     readonly artwork: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkDemandIndex_artwork">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkDemandIndex_artwork">;
     } | null;
     readonly marketPriceInsights: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkDemandIndex_marketPriceInsights">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkDemandIndex_marketPriceInsights">;
     } | null;
 };
-export type MyCollectionArtworkDemandIndexTestsQuery = {
-    readonly response: MyCollectionArtworkDemandIndexTestsQueryResponse;
-    readonly variables: MyCollectionArtworkDemandIndexTestsQueryVariables;
+export type OldMyCollectionArtworkDemandIndexTestsQuery = {
+    readonly response: OldMyCollectionArtworkDemandIndexTestsQueryResponse;
+    readonly variables: OldMyCollectionArtworkDemandIndexTestsQueryVariables;
 };
 
 
 
 /*
-query MyCollectionArtworkDemandIndexTestsQuery {
+query OldMyCollectionArtworkDemandIndexTestsQuery {
   artwork(id: "some-artwork-id") {
-    ...MyCollectionArtworkDemandIndex_artwork
+    ...OldMyCollectionArtworkDemandIndex_artwork
     id
   }
   marketPriceInsights(artistId: "some-artist-id", medium: "painting") {
-    ...MyCollectionArtworkDemandIndex_marketPriceInsights
+    ...OldMyCollectionArtworkDemandIndex_marketPriceInsights
     id
   }
 }
 
-fragment MyCollectionArtworkDemandIndex_artwork on Artwork {
+fragment OldMyCollectionArtworkDemandIndex_artwork on Artwork {
   internalID
   slug
 }
 
-fragment MyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
+fragment OldMyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
   demandRank
 }
 */
@@ -81,7 +81,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "MyCollectionArtworkDemandIndexTestsQuery",
+    "name": "OldMyCollectionArtworkDemandIndexTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -94,7 +94,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkDemandIndex_artwork"
+            "name": "OldMyCollectionArtworkDemandIndex_artwork"
           }
         ],
         "storageKey": "artwork(id:\"some-artwork-id\")"
@@ -110,7 +110,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkDemandIndex_marketPriceInsights"
+            "name": "OldMyCollectionArtworkDemandIndex_marketPriceInsights"
           }
         ],
         "storageKey": "marketPriceInsights(artistId:\"some-artist-id\",medium:\"painting\")"
@@ -123,7 +123,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "MyCollectionArtworkDemandIndexTestsQuery",
+    "name": "OldMyCollectionArtworkDemandIndexTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -173,7 +173,7 @@ return {
     ]
   },
   "params": {
-    "id": "529f0a3da3f170f5454ab6542eac22f6",
+    "id": "50fb790a1c3e52364c963968eee2b71e",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "artwork": {
@@ -200,11 +200,11 @@ return {
         "marketPriceInsights.id": (v3/*: any*/)
       }
     },
-    "name": "MyCollectionArtworkDemandIndexTestsQuery",
+    "name": "OldMyCollectionArtworkDemandIndexTestsQuery",
     "operationKind": "query",
     "text": null
   }
 };
 })();
-(node as any).hash = 'fff5977d298543eae7a09e441e67923b';
+(node as any).hash = '9b72b73e6fd352f394e26ddcf3489e95';
 export default node;

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash 75d7f831df34b2c5bb5a4ccde2cda408 */
+/* @relayHash 5ec05c1c15c1177569d0c086c1739a88 */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
@@ -131,12 +131,12 @@ fragment MyCollectionArtworkArtistMarket_marketPriceInsights on MarketPriceInsig
   demandTrend
 }
 
-fragment MyCollectionArtworkDemandIndex_artwork on Artwork {
+fragment OldMyCollectionArtworkDemandIndex_artwork on Artwork {
   internalID
   slug
 }
 
-fragment MyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
+fragment OldMyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
   demandRank
 }
 
@@ -150,11 +150,11 @@ fragment OldMyCollectionArtworkInsights_artwork on Artwork {
   ...MyCollectionArtworkArtistAuctionResults_artwork
   ...MyCollectionArtworkArtistArticles_artwork
   ...MyCollectionArtworkArtistMarket_artwork
-  ...MyCollectionArtworkDemandIndex_artwork
+  ...OldMyCollectionArtworkDemandIndex_artwork
 }
 
 fragment OldMyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
-  ...MyCollectionArtworkDemandIndex_marketPriceInsights
+  ...OldMyCollectionArtworkDemandIndex_marketPriceInsights
   ...MyCollectionArtworkArtistMarket_marketPriceInsights
 }
 */
@@ -736,7 +736,7 @@ return {
     ]
   },
   "params": {
-    "id": "75d7f831df34b2c5bb5a4ccde2cda408",
+    "id": "5ec05c1c15c1177569d0c086c1739a88",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "artwork": {

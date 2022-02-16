@@ -19,7 +19,7 @@ export enum Tab {
 }
 
 const MyCollectionArtworkScreenQuery = graphql`
-  query MyCollectionArtworkQuery($artworkSlug: String!) {
+  query MyCollectionArtworkQuery($artworkSlug: String!, $artistInternalID: ID!, $medium: String!) {
     artwork(id: $artworkSlug) {
       ...NewMyCollectionArtworkHeader_artwork
       internalID
@@ -29,12 +29,21 @@ const MyCollectionArtworkScreenQuery = graphql`
       ...MyCollectionArtworkInsights_artwork
       ...MyCollectionArtworkAbout_artwork
     }
+    marketPriceInsights(artistId: $artistInternalID, medium: $medium) {
+      ...MyCollectionArtworkInsights_marketPriceInsights
+    }
   }
 `
 
-const MyCollectionArtwork: React.FC<MyCollectionArtworkScreenProps> = ({ artworkSlug }) => {
+const MyCollectionArtwork: React.FC<MyCollectionArtworkScreenProps> = ({
+  artworkSlug,
+  artistInternalID,
+  medium,
+}) => {
   const data = useLazyLoadQuery<MyCollectionArtworkQuery>(MyCollectionArtworkScreenQuery, {
     artworkSlug,
+    artistInternalID,
+    medium,
   })
 
   if (!data.artwork) {
@@ -62,7 +71,12 @@ const MyCollectionArtwork: React.FC<MyCollectionArtworkScreenProps> = ({ artwork
   const tabs = compact([
     {
       title: Tab.insights,
-      content: <MyCollectionArtworkInsights artwork={data.artwork} />,
+      content: (
+        <MyCollectionArtworkInsights
+          artwork={data.artwork}
+          marketPriceInsights={data.marketPriceInsights!}
+        />
+      ),
       initial: true,
     },
     {
