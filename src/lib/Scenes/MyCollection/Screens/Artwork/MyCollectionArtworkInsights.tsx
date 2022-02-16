@@ -1,11 +1,11 @@
 import { MyCollectionArtworkInsights_artwork$key } from "__generated__/MyCollectionArtworkInsights_artwork.graphql"
 import { MyCollectionArtworkInsights_marketPriceInsights$key } from "__generated__/MyCollectionArtworkInsights_marketPriceInsights.graphql"
 import { StickyTabPageScrollView } from "lib/Components/StickyTabPage/StickyTabPageScrollView"
-import { Text } from "palette/elements"
+import { Flex, Text } from "palette/elements"
 import React from "react"
 import { useFragment } from "react-relay"
 import { graphql } from "relay-runtime"
-import { MyCollectionArtworkDemandIndexFragmentContainer } from "./Components/ArtworkInsights/MyCollectionArtworkDemandIndex"
+import { MyCollectionArtworkDemandIndex } from "./Components/ArtworkInsights/MyCollectionArtworkDemandIndex"
 
 interface MyCollectionArtworkInsightsProps {
   artwork: MyCollectionArtworkInsights_artwork$key
@@ -27,11 +27,13 @@ export const MyCollectionArtworkInsights: React.FC<MyCollectionArtworkInsightsPr
 
   return (
     <StickyTabPageScrollView>
-      <Text>Price & Market Insights</Text>
-      <MyCollectionArtworkDemandIndexFragmentContainer
-        artwork={artwork}
-        marketPriceInsights={marketPriceInsights}
-      />
+      <Flex my={2} pt={1}>
+        <Text variant="lg">Price & Market Insights</Text>
+        <MyCollectionArtworkDemandIndex
+          artwork={artwork}
+          marketPriceInsights={marketPriceInsights}
+        />
+      </Flex>
     </StickyTabPageScrollView>
   )
 }

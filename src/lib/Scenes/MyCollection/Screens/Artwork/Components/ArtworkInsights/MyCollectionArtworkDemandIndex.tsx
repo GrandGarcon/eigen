@@ -1,25 +1,34 @@
 import { ActionType, ContextModule, OwnerType, TappedInfoBubble } from "@artsy/cohesion"
-import { MyCollectionArtworkDemandIndex_artwork } from "__generated__/MyCollectionArtworkDemandIndex_artwork.graphql"
-import { MyCollectionArtworkDemandIndex_marketPriceInsights } from "__generated__/MyCollectionArtworkDemandIndex_marketPriceInsights.graphql"
+import { MyCollectionArtworkDemandIndex_artwork$key } from "__generated__/MyCollectionArtworkDemandIndex_artwork.graphql"
+import { MyCollectionArtworkDemandIndex_marketPriceInsights$key } from "__generated__/MyCollectionArtworkDemandIndex_marketPriceInsights.graphql"
 import { InfoButton } from "lib/Components/Buttons/InfoButton"
 import { TriangleDown } from "lib/Icons/TriangleDown"
-import { ScreenMargin } from "lib/Scenes/MyCollection/Components/ScreenMargin"
 import { Box, Flex, Spacer, Text } from "palette"
 import React from "react"
 import LinearGradient from "react-native-linear-gradient"
-import { createFragmentContainer, graphql } from "react-relay"
+import { graphql, useFragment } from "react-relay"
 import { useTracking } from "react-tracking"
 
 interface MyCollectionArtworkDemandIndexProps {
-  artwork: MyCollectionArtworkDemandIndex_artwork
-  marketPriceInsights: MyCollectionArtworkDemandIndex_marketPriceInsights
+  artwork: MyCollectionArtworkDemandIndex_artwork$key
+  marketPriceInsights: MyCollectionArtworkDemandIndex_marketPriceInsights$key
 }
 
-const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandIndexProps> = ({
-  artwork,
-  marketPriceInsights,
-}) => {
+export const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandIndexProps> = (
+  props
+) => {
   const { trackEvent } = useTracking()
+
+  const artwork = useFragment<MyCollectionArtworkDemandIndex_artwork$key>(
+    artworkFragment,
+    props.artwork
+  )
+
+  const marketPriceInsights = useFragment<MyCollectionArtworkDemandIndex_marketPriceInsights$key>(
+    marketPriceInsightsFragment,
+    props.marketPriceInsights
+  )
+
   if (!artwork || !marketPriceInsights) {
     return null
   }
@@ -27,7 +36,7 @@ const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandIndexPro
   const demandRank = Number((marketPriceInsights.demandRank! * 10).toFixed(2))
 
   return (
-    <ScreenMargin>
+    <Flex my={1}>
       <InfoButton
         title="Demand index"
         modalContent={
@@ -42,19 +51,19 @@ const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandIndexPro
         onPress={() => trackEvent(tracks.tappedInfoBubble(artwork?.internalID, artwork?.slug))}
       />
 
-      <Spacer my={0.5} />
+      <Spacer my={1} />
       <DemandRankScale demandRank={demandRank} />
       <Spacer my={1} />
       <DemandRankDetails demandRank={demandRank} />
-    </ScreenMargin>
+    </Flex>
   )
 }
 
 const DemandRankDetails: React.FC<{ demandRank: number }> = ({ demandRank }) => {
   const Bubble: React.FC<{ title: string }> = ({ title }) => (
-    <Box>
+    <Flex alignItems="center">
       <Text>{title}</Text>
-    </Box>
+    </Flex>
   )
 
   const getContent = () => {
@@ -96,10 +105,14 @@ const DemandRankScale: React.FC<{ demandRank: number }> = ({ demandRank }) => {
         </Text>
       </Box>
       <ProgressBar width={width} />
-      <Spacer my={0.3} />
+      <Spacer />
       <Flex flexDirection="row" justifyContent="space-between">
-        <Text>0</Text>
-        <Text>10</Text>
+        <Text variant="xs" color="black60">
+          0
+        </Text>
+        <Text variant="xs" color="black60">
+          10
+        </Text>
       </Flex>
     </>
   )
@@ -131,22 +144,18 @@ const ProgressBar: React.FC<{ width: number }> = ({ width }) => {
   )
 }
 
-export const MyCollectionArtworkDemandIndexFragmentContainer = createFragmentContainer(
-  MyCollectionArtworkDemandIndex,
-  {
-    marketPriceInsights: graphql`
-      fragment MyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
-        demandRank
-      }
-    `,
-    artwork: graphql`
-      fragment MyCollectionArtworkDemandIndex_artwork on Artwork {
-        internalID
-        slug
-      }
-    `,
+const artworkFragment = graphql`
+  fragment MyCollectionArtworkDemandIndex_artwork on Artwork {
+    internalID
+    slug
   }
-)
+`
+
+const marketPriceInsightsFragment = graphql`
+  fragment MyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
+    demandRank
+  }
+`
 
 export const tests = {
   DemandRankScale,
