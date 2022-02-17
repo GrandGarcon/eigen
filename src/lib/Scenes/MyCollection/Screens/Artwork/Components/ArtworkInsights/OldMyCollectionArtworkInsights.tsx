@@ -8,7 +8,7 @@ import { createFragmentContainer, graphql } from "react-relay"
 import { pluralizeMedium } from "../../../../utils/pluralizeArtworkMedium"
 import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollectionArtworkArtistArticles"
 import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
-import { MyCollectionArtworkArtistMarketFragmentContainer } from "./MyCollectionArtworkArtistMarket"
+import { OldMyCollectionArtworkArtistMarketFragmentContainer } from "./OldMyCollectionArtworkArtistMarket"
 import { OldMyCollectionArtworkDemandIndexFragmentContainer } from "./OldMyCollectionArtworkDemandIndex"
 
 interface OldMyCollectionArtworkInsightsProps {
@@ -43,7 +43,7 @@ export const OldMyCollectionArtworkInsights: React.FC<OldMyCollectionArtworkInsi
           <ScreenMargin mt={2} mb={3}>
             <Separator />
           </ScreenMargin>
-          <MyCollectionArtworkArtistMarketFragmentContainer
+          <OldMyCollectionArtworkArtistMarketFragmentContainer
             artwork={artwork}
             marketPriceInsights={marketPriceInsights}
           />
@@ -68,14 +68,14 @@ export const OldMyCollectionArtworkInsightsFragmentContainer = createFragmentCon
         }
         ...MyCollectionArtworkArtistAuctionResults_artwork
         ...MyCollectionArtworkArtistArticles_artwork
-        ...MyCollectionArtworkArtistMarket_artwork
+        ...OldMyCollectionArtworkArtistMarket_artwork
         ...OldMyCollectionArtworkDemandIndex_artwork
       }
     `,
     marketPriceInsights: graphql`
       fragment OldMyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
         ...OldMyCollectionArtworkDemandIndex_marketPriceInsights
-        ...MyCollectionArtworkArtistMarket_marketPriceInsights
+        ...OldMyCollectionArtworkArtistMarket_marketPriceInsights
       }
     `,
   }

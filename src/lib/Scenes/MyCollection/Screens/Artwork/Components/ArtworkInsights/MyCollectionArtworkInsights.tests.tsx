@@ -6,7 +6,7 @@ import { graphql, QueryRenderer } from "react-relay"
 import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils"
 import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollectionArtworkArtistArticles"
 import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
-import { MyCollectionArtworkArtistMarketFragmentContainer } from "./MyCollectionArtworkArtistMarket"
+import { OldMyCollectionArtworkArtistMarketFragmentContainer } from "./OldMyCollectionArtworkArtistMarket"
 import { OldMyCollectionArtworkDemandIndexFragmentContainer } from "./OldMyCollectionArtworkDemandIndex"
 import { OldMyCollectionArtworkInsightsFragmentContainer } from "./OldMyCollectionArtworkInsights"
 
@@ -64,7 +64,9 @@ describe("MyCollectionArtworkInsights", () => {
     expect(
       wrapper.root.findByType(OldMyCollectionArtworkDemandIndexFragmentContainer)
     ).toBeDefined()
-    expect(wrapper.root.findByType(MyCollectionArtworkArtistMarketFragmentContainer)).toBeDefined()
+    expect(
+      wrapper.root.findByType(OldMyCollectionArtworkArtistMarketFragmentContainer)
+    ).toBeDefined()
     expect(
       wrapper.root.findByType(MyCollectionArtworkArtistAuctionResultsFragmentContainer)
     ).toBeDefined()

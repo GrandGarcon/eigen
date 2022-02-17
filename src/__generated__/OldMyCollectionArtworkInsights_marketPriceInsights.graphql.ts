@@ -5,7 +5,7 @@
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type OldMyCollectionArtworkInsights_marketPriceInsights = {
-    readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkDemandIndex_marketPriceInsights" | "MyCollectionArtworkArtistMarket_marketPriceInsights">;
+    readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkDemandIndex_marketPriceInsights" | "OldMyCollectionArtworkArtistMarket_marketPriceInsights">;
     readonly " $refType": "OldMyCollectionArtworkInsights_marketPriceInsights";
 };
 export type OldMyCollectionArtworkInsights_marketPriceInsights$data = OldMyCollectionArtworkInsights_marketPriceInsights;
@@ -30,11 +30,11 @@ const node: ReaderFragment = {
     {
       "args": null,
       "kind": "FragmentSpread",
-      "name": "MyCollectionArtworkArtistMarket_marketPriceInsights"
+      "name": "OldMyCollectionArtworkArtistMarket_marketPriceInsights"
     }
   ],
   "type": "MarketPriceInsights",
   "abstractKey": null
 };
-(node as any).hash = '260b27c97f5e4fa63d8e5925813149df';
+(node as any).hash = '8119720bd0c955292e605b4285caf23c';
 export default node;

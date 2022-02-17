@@ -1,10 +1,11 @@
 import { MyCollectionArtworkInsights_artwork$key } from "__generated__/MyCollectionArtworkInsights_artwork.graphql"
 import { MyCollectionArtworkInsights_marketPriceInsights$key } from "__generated__/MyCollectionArtworkInsights_marketPriceInsights.graphql"
 import { StickyTabPageScrollView } from "lib/Components/StickyTabPage/StickyTabPageScrollView"
-import { Flex, Text } from "palette/elements"
+import { Flex, Join, Spacer, Text } from "palette/elements"
 import React from "react"
 import { useFragment } from "react-relay"
 import { graphql } from "relay-runtime"
+import { MyCollectionArtworkArtistMarket } from "./Components/ArtworkInsights/MyCollectionArtworkArtistMarket"
 import { MyCollectionArtworkDemandIndex } from "./Components/ArtworkInsights/MyCollectionArtworkDemandIndex"
 
 interface MyCollectionArtworkInsightsProps {
@@ -29,10 +30,16 @@ export const MyCollectionArtworkInsights: React.FC<MyCollectionArtworkInsightsPr
     <StickyTabPageScrollView>
       <Flex my={2} pt={1}>
         <Text variant="lg">Price & Market Insights</Text>
-        <MyCollectionArtworkDemandIndex
-          artwork={artwork}
-          marketPriceInsights={marketPriceInsights}
-        />
+        <Join separator={<Spacer mb={3} />}>
+          <MyCollectionArtworkDemandIndex
+            artwork={artwork}
+            marketPriceInsights={marketPriceInsights}
+          />
+          <MyCollectionArtworkArtistMarket
+            artwork={artwork}
+            marketPriceInsights={marketPriceInsights}
+          />
+        </Join>
       </Flex>
     </StickyTabPageScrollView>
   )
@@ -44,11 +51,13 @@ const artworkFragment = graphql`
     slug
     internalID
     ...MyCollectionArtworkDemandIndex_artwork
+    ...MyCollectionArtworkArtistMarket_artwork
   }
 `
 
 const marketPriceInsightsFragment = graphql`
   fragment MyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
     ...MyCollectionArtworkDemandIndex_marketPriceInsights
+    ...MyCollectionArtworkArtistMarket_marketPriceInsights
   }
 `

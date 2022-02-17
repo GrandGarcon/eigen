@@ -1,44 +1,44 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash 91b95c29d773ab51622c8d8118c8d6ff */
+/* @relayHash e8a21fcfcc2a4e52a0c1f35a3ee869ee */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkArtistMarketTestsQueryVariables = {};
-export type MyCollectionArtworkArtistMarketTestsQueryResponse = {
+export type OldMyCollectionArtworkArtistMarketTestsQueryVariables = {};
+export type OldMyCollectionArtworkArtistMarketTestsQueryResponse = {
     readonly artwork: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkArtistMarket_artwork">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkArtistMarket_artwork">;
     } | null;
     readonly marketPriceInsights: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkArtistMarket_marketPriceInsights">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkArtistMarket_marketPriceInsights">;
     } | null;
 };
-export type MyCollectionArtworkArtistMarketTestsQuery = {
-    readonly response: MyCollectionArtworkArtistMarketTestsQueryResponse;
-    readonly variables: MyCollectionArtworkArtistMarketTestsQueryVariables;
+export type OldMyCollectionArtworkArtistMarketTestsQuery = {
+    readonly response: OldMyCollectionArtworkArtistMarketTestsQueryResponse;
+    readonly variables: OldMyCollectionArtworkArtistMarketTestsQueryVariables;
 };
 
 
 
 /*
-query MyCollectionArtworkArtistMarketTestsQuery {
+query OldMyCollectionArtworkArtistMarketTestsQuery {
   artwork(id: "foo") {
-    ...MyCollectionArtworkArtistMarket_artwork
+    ...OldMyCollectionArtworkArtistMarket_artwork
     id
   }
   marketPriceInsights(artistId: "some-artist-id", medium: "painting") {
-    ...MyCollectionArtworkArtistMarket_marketPriceInsights
+    ...OldMyCollectionArtworkArtistMarket_marketPriceInsights
     id
   }
 }
 
-fragment MyCollectionArtworkArtistMarket_artwork on Artwork {
+fragment OldMyCollectionArtworkArtistMarket_artwork on Artwork {
   internalID
   slug
 }
 
-fragment MyCollectionArtworkArtistMarket_marketPriceInsights on MarketPriceInsights {
+fragment OldMyCollectionArtworkArtistMarket_marketPriceInsights on MarketPriceInsights {
   annualLotsSold
   annualValueSoldCents
   sellThroughRate
@@ -92,7 +92,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "MyCollectionArtworkArtistMarketTestsQuery",
+    "name": "OldMyCollectionArtworkArtistMarketTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -105,7 +105,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkArtistMarket_artwork"
+            "name": "OldMyCollectionArtworkArtistMarket_artwork"
           }
         ],
         "storageKey": "artwork(id:\"foo\")"
@@ -121,7 +121,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkArtistMarket_marketPriceInsights"
+            "name": "OldMyCollectionArtworkArtistMarket_marketPriceInsights"
           }
         ],
         "storageKey": "marketPriceInsights(artistId:\"some-artist-id\",medium:\"painting\")"
@@ -134,7 +134,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "MyCollectionArtworkArtistMarketTestsQuery",
+    "name": "OldMyCollectionArtworkArtistMarketTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -219,7 +219,7 @@ return {
     ]
   },
   "params": {
-    "id": "91b95c29d773ab51622c8d8118c8d6ff",
+    "id": "e8a21fcfcc2a4e52a0c1f35a3ee869ee",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "artwork": {
@@ -256,11 +256,11 @@ return {
         "marketPriceInsights.sellThroughRate": (v4/*: any*/)
       }
     },
-    "name": "MyCollectionArtworkArtistMarketTestsQuery",
+    "name": "OldMyCollectionArtworkArtistMarketTestsQuery",
     "operationKind": "query",
     "text": null
   }
 };
 })();
-(node as any).hash = '74ffb5cbe4d55f77acc982cd8e33685b';
+(node as any).hash = '1d8b5626779a6a79eb8c3ff3b57791a4';
 export default node;

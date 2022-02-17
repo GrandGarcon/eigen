@@ -4,19 +4,19 @@
 
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkArtistMarket_marketPriceInsights = {
+export type OldMyCollectionArtworkArtistMarket_marketPriceInsights = {
     readonly annualLotsSold: number | null;
     readonly annualValueSoldCents: unknown | null;
     readonly sellThroughRate: number | null;
-    readonly medianSaleOverEstimatePercentage: number | null;
+    readonly medianSaleToEstimateRatio: number | null;
     readonly liquidityRank: number | null;
     readonly demandTrend: number | null;
-    readonly " $refType": "MyCollectionArtworkArtistMarket_marketPriceInsights";
+    readonly " $refType": "OldMyCollectionArtworkArtistMarket_marketPriceInsights";
 };
-export type MyCollectionArtworkArtistMarket_marketPriceInsights$data = MyCollectionArtworkArtistMarket_marketPriceInsights;
-export type MyCollectionArtworkArtistMarket_marketPriceInsights$key = {
-    readonly " $data"?: MyCollectionArtworkArtistMarket_marketPriceInsights$data | undefined;
-    readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkArtistMarket_marketPriceInsights">;
+export type OldMyCollectionArtworkArtistMarket_marketPriceInsights$data = OldMyCollectionArtworkArtistMarket_marketPriceInsights;
+export type OldMyCollectionArtworkArtistMarket_marketPriceInsights$key = {
+    readonly " $data"?: OldMyCollectionArtworkArtistMarket_marketPriceInsights$data | undefined;
+    readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkArtistMarket_marketPriceInsights">;
 };
 
 
@@ -25,7 +25,7 @@ const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MyCollectionArtworkArtistMarket_marketPriceInsights",
+  "name": "OldMyCollectionArtworkArtistMarket_marketPriceInsights",
   "selections": [
     {
       "alias": null,
@@ -52,7 +52,7 @@ const node: ReaderFragment = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "medianSaleOverEstimatePercentage",
+      "name": "medianSaleToEstimateRatio",
       "storageKey": null
     },
     {
@@ -73,5 +73,5 @@ const node: ReaderFragment = {
   "type": "MarketPriceInsights",
   "abstractKey": null
 };
-(node as any).hash = '5bc1529fa80b983eb9e732969def497b';
+(node as any).hash = 'a2822079a8c3ba3d459504b56fe93412';
 export default node;

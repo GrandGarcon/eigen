@@ -17,8 +17,6 @@ interface MyCollectionArtworkDemandIndexProps {
 export const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandIndexProps> = (
   props
 ) => {
-  const { trackEvent } = useTracking()
-
   const artwork = useFragment<MyCollectionArtworkDemandIndex_artwork$key>(
     artworkFragment,
     props.artwork
@@ -28,6 +26,8 @@ export const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandI
     marketPriceInsightsFragment,
     props.marketPriceInsights
   )
+
+  const { trackEvent } = useTracking()
 
   if (!artwork || !marketPriceInsights) {
     return null
