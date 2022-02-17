@@ -7,6 +7,7 @@ import { Flex, Spacer, Text } from "palette"
 import React from "react"
 import { graphql, useFragment } from "react-relay"
 import { useTracking } from "react-tracking"
+import { Field } from "../Field"
 
 interface MyCollectionArtworkArtistMarketProps {
   artwork: MyCollectionArtworkArtistMarket_artwork$key
@@ -102,22 +103,6 @@ const tracks = {
     context_screen_owner_type: OwnerType.myCollectionArtwork,
     subject: "artistMarketStatistics",
   }),
-}
-
-const Field: React.FC<{ label: string; value: string | null }> = ({ label, value }) => {
-  if (!value) {
-    return null
-  }
-  return (
-    <Flex flexDirection="row" justifyContent="space-between" my={1}>
-      <Text color="black60" pr={1}>
-        {label}
-      </Text>
-      <Text style={{ flex: 1, maxWidth: "60%" }} textAlign="right">
-        {value}
-      </Text>
-    </Flex>
-  )
 }
 
 const getFormattedDemandTrend = (demandTrend: number | null) => {

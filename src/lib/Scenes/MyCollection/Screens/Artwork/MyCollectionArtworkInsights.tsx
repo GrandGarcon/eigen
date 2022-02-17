@@ -28,7 +28,7 @@ export const MyCollectionArtworkInsights: React.FC<MyCollectionArtworkInsightsPr
 
   return (
     <StickyTabPageScrollView>
-      <Flex my={2} pt={1}>
+      <Flex my={3}>
         <Text variant="lg">Price & Market Insights</Text>
         <Join separator={<Spacer mb={3} />}>
           <MyCollectionArtworkDemandIndex

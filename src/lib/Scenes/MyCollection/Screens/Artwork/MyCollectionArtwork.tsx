@@ -91,6 +91,7 @@ const MyCollectionArtwork: React.FC<MyCollectionArtworkScreenProps> = ({
         onLeftButtonPress={goBack}
         rightButtonText="Edit"
         onRightButtonPress={displayEditButton ? handleEdit : undefined}
+        hideBottomDivider
       />
       <StickyTabPage
         tabs={tabs}
