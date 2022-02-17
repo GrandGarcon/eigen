@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash a0ba38cc17d2392c8cca236be368849a */
+/* @relayHash 5aee41b36cfb60194b5cc7058f20f7da */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
@@ -51,10 +51,10 @@ export type OldMyCollectionArtworkQueryResponse = {
         readonly consignmentSubmission: {
             readonly inProgress: boolean | null;
         } | null;
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkHeader_artwork" | "MyCollectionArtworkMeta_artwork" | "MyCollectionArtworkInsights_artwork">;
+        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkHeader_artwork" | "MyCollectionArtworkMeta_artwork" | "OldMyCollectionArtworkInsights_artwork">;
     } | null;
     readonly marketPriceInsights: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkInsights_marketPriceInsights">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkInsights_marketPriceInsights">;
     } | null;
 };
 export type OldMyCollectionArtworkQuery = {
@@ -114,10 +114,10 @@ query OldMyCollectionArtworkQuery(
     }
     ...MyCollectionArtworkHeader_artwork
     ...MyCollectionArtworkMeta_artwork
-    ...MyCollectionArtworkInsights_artwork
+    ...OldMyCollectionArtworkInsights_artwork
   }
   marketPriceInsights(artistId: $artistInternalID, medium: $medium) {
-    ...MyCollectionArtworkInsights_marketPriceInsights
+    ...OldMyCollectionArtworkInsights_marketPriceInsights
     id
   }
 }
@@ -205,48 +205,6 @@ fragment MyCollectionArtworkArtistArticles_artwork on Artwork {
   }
 }
 
-fragment MyCollectionArtworkArtistAuctionResults_artwork on Artwork {
-  internalID
-  slug
-  artist {
-    slug
-    name
-    auctionResultsConnection(first: 3, sort: DATE_DESC) {
-      edges {
-        node {
-          id
-          internalID
-          ...AuctionResultListItem_auctionResult
-        }
-      }
-    }
-    id
-  }
-}
-
-fragment MyCollectionArtworkArtistMarket_artwork on Artwork {
-  internalID
-  slug
-}
-
-fragment MyCollectionArtworkArtistMarket_marketPriceInsights on MarketPriceInsights {
-  annualLotsSold
-  annualValueSoldCents
-  sellThroughRate
-  medianSaleToEstimateRatio
-  liquidityRank
-  demandTrend
-}
-
-fragment MyCollectionArtworkDemandIndex_artwork on Artwork {
-  internalID
-  slug
-}
-
-fragment MyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
-  demandRank
-}
-
 fragment MyCollectionArtworkHeader_artwork on Artwork {
   artistNames
   date
@@ -258,24 +216,6 @@ fragment MyCollectionArtworkHeader_artwork on Artwork {
   internalID
   slug
   title
-}
-
-fragment MyCollectionArtworkInsights_artwork on Artwork {
-  sizeBucket
-  medium
-  artist {
-    name
-    id
-  }
-  ...MyCollectionArtworkArtistAuctionResults_artwork
-  ...MyCollectionArtworkArtistArticles_artwork
-  ...MyCollectionArtworkArtistMarket_artwork
-  ...MyCollectionArtworkDemandIndex_artwork
-}
-
-fragment MyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
-  ...MyCollectionArtworkDemandIndex_marketPriceInsights
-  ...MyCollectionArtworkArtistMarket_marketPriceInsights
 }
 
 fragment MyCollectionArtworkMeta_artwork on Artwork {
@@ -295,6 +235,66 @@ fragment MyCollectionArtworkMeta_artwork on Artwork {
   metric
   title
   width
+}
+
+fragment OldMyCollectionArtworkArtistAuctionResults_artwork on Artwork {
+  internalID
+  slug
+  artist {
+    slug
+    name
+    auctionResultsConnection(first: 3, sort: DATE_DESC) {
+      edges {
+        node {
+          id
+          internalID
+          ...AuctionResultListItem_auctionResult
+        }
+      }
+    }
+    id
+  }
+}
+
+fragment OldMyCollectionArtworkArtistMarket_artwork on Artwork {
+  internalID
+  slug
+}
+
+fragment OldMyCollectionArtworkArtistMarket_marketPriceInsights on MarketPriceInsights {
+  annualLotsSold
+  annualValueSoldCents
+  sellThroughRate
+  medianSaleToEstimateRatio
+  liquidityRank
+  demandTrend
+}
+
+fragment OldMyCollectionArtworkDemandIndex_artwork on Artwork {
+  internalID
+  slug
+}
+
+fragment OldMyCollectionArtworkDemandIndex_marketPriceInsights on MarketPriceInsights {
+  demandRank
+}
+
+fragment OldMyCollectionArtworkInsights_artwork on Artwork {
+  sizeBucket
+  medium
+  artist {
+    name
+    id
+  }
+  ...OldMyCollectionArtworkArtistAuctionResults_artwork
+  ...MyCollectionArtworkArtistArticles_artwork
+  ...OldMyCollectionArtworkArtistMarket_artwork
+  ...OldMyCollectionArtworkDemandIndex_artwork
+}
+
+fragment OldMyCollectionArtworkInsights_marketPriceInsights on MarketPriceInsights {
+  ...OldMyCollectionArtworkDemandIndex_marketPriceInsights
+  ...OldMyCollectionArtworkArtistMarket_marketPriceInsights
 }
 */
 
@@ -632,7 +632,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkInsights_artwork"
+            "name": "OldMyCollectionArtworkInsights_artwork"
           }
         ],
         "storageKey": null
@@ -648,7 +648,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkInsights_marketPriceInsights"
+            "name": "OldMyCollectionArtworkInsights_marketPriceInsights"
           }
         ],
         "storageKey": null
@@ -1196,7 +1196,7 @@ return {
     ]
   },
   "params": {
-    "id": "a0ba38cc17d2392c8cca236be368849a",
+    "id": "5aee41b36cfb60194b5cc7058f20f7da",
     "metadata": {},
     "name": "OldMyCollectionArtworkQuery",
     "operationKind": "query",
@@ -1204,5 +1204,5 @@ return {
   }
 };
 })();
-(node as any).hash = '39df351bbb3a6ac17d632db949ae54aa';
+(node as any).hash = 'cece1df11717ff2ce4f2aa66377f0f40';
 export default node;
