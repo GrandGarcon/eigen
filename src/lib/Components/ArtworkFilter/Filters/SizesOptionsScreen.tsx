@@ -7,7 +7,7 @@ import { ArtworkFilterNavigationStack } from ".."
 import { FilterData, FilterDisplayName, FilterParamName } from "../ArtworkFilterHelpers"
 import { ArtworksFiltersStore, useSelectedOptionsDisplay } from "../ArtworkFilterStore"
 import { CustomSizeInputs } from "./CustomSizeInputs"
-import { IS_USA, localizeDimension, parseRange, Range, toIn, Unit } from "./helpers"
+import { localizeDimension, parseRange, Range, toIn, Unit } from "./helpers"
 import { MultiSelectOptionScreen } from "./MultiSelectOption"
 import { useMultiSelect } from "./useMultiSelect"
 
@@ -62,7 +62,9 @@ export const USA_SIZE_OPTIONS: FilterData[] = [
   },
 ]
 
-export const SIZES_OPTIONS = IS_USA ? USA_SIZE_OPTIONS : EUROPE_SIZE_OPTIONS
+export const getSizeOptions = (unit: Unit) => {
+  return unit === "in" ? USA_SIZE_OPTIONS : EUROPE_SIZE_OPTIONS
+}
 
 const DEFAULT_CUSTOM_SIZE: CustomSize = {
   width: {
@@ -153,15 +155,6 @@ export const SizesOptionsScreen: React.FC<SizesOptionsScreenProps> = ({ navigati
     localizedUnit === "in" ? USA_SIZE_OPTIONS : EUROPE_SIZE_OPTIONS
   )
 
-  const handleMetricChange = (newMetric: "in" | "cm") => {
-    setMetric(newMetric)
-    GlobalStore.actions.userPreferences.setMetric(newMetric)
-  }
-
-  useEffect(() => {
-    setSizesOptions(metric === "in" ? USA_SIZE_OPTIONS : EUROPE_SIZE_OPTIONS)
-  }, [metric])
-
   const {
     handleSelect,
     isSelected,
@@ -184,6 +177,16 @@ export const SizesOptionsScreen: React.FC<SizesOptionsScreenProps> = ({ navigati
   const shouldShowCustomInputs = filterType !== "auctionResult"
   const isActive = isActivePredefinedValues || !checkIsEmptyCustomValues(customValues)
 
+  useEffect(() => {
+    setSizesOptions(metric === "in" ? USA_SIZE_OPTIONS : EUROPE_SIZE_OPTIONS)
+    handleCustomInputsChange(customValues)
+  }, [metric])
+
+  const handleMetricChange = (newMetric: "in" | "cm") => {
+    setMetric(newMetric)
+    GlobalStore.actions.userPreferences.setMetric(newMetric)
+  }
+
   // Options
   let options: FilterData[] = sizesOptions.map((option) => ({
     ...option,
@@ -204,9 +207,8 @@ export const SizesOptionsScreen: React.FC<SizesOptionsScreenProps> = ({ navigati
   const selectCustomFiltersAction = (values: CustomSize) => {
     CUSTOM_SIZE_OPTION_KEYS.forEach((paramName) => {
       const value = values[paramName]
-      const localizedMinValue = toIn(value.min, metric)
-      const localizedMaxValue = toIn(value.max, metric)
-
+      const localizedMinValue = metric === "cm" ? toIn(value.min, metric) : value.min
+      const localizedMaxValue = metric === "cm" ? toIn(value.max, metric) : value.max
       selectFiltersAction({
         displayText: `${value.min}-${value.max}`,
         paramName: paramName as FilterParamName,
