@@ -36,7 +36,7 @@ export const MyCollectionArtworkDemandIndex: React.FC<MyCollectionArtworkDemandI
   const demandRank = Number((marketPriceInsights.demandRank! * 10).toFixed(2))
 
   return (
-    <Flex my={1}>
+    <Flex mb={3}>
       <InfoButton
         title="Demand index"
         modalContent={

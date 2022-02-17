@@ -1,12 +1,12 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash ee0c1f7bda890b373da377056f5386fa */
+/* @relayHash a3ca27cd57515be6348175f306798f9c */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkInsightsTestsQueryVariables = {};
-export type MyCollectionArtworkInsightsTestsQueryResponse = {
+export type OldMyCollectionArtworkInsightsTestsQueryVariables = {};
+export type OldMyCollectionArtworkInsightsTestsQueryResponse = {
     readonly artwork: {
         readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkInsights_artwork">;
     } | null;
@@ -14,15 +14,15 @@ export type MyCollectionArtworkInsightsTestsQueryResponse = {
         readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkInsights_marketPriceInsights">;
     } | null;
 };
-export type MyCollectionArtworkInsightsTestsQuery = {
-    readonly response: MyCollectionArtworkInsightsTestsQueryResponse;
-    readonly variables: MyCollectionArtworkInsightsTestsQueryVariables;
+export type OldMyCollectionArtworkInsightsTestsQuery = {
+    readonly response: OldMyCollectionArtworkInsightsTestsQueryResponse;
+    readonly variables: OldMyCollectionArtworkInsightsTestsQueryVariables;
 };
 
 
 
 /*
-query MyCollectionArtworkInsightsTestsQuery {
+query OldMyCollectionArtworkInsightsTestsQuery {
   artwork(id: "some-artwork-id") {
     ...OldMyCollectionArtworkInsights_artwork
     id
@@ -98,7 +98,7 @@ fragment MyCollectionArtworkArtistArticles_artwork on Artwork {
   }
 }
 
-fragment MyCollectionArtworkArtistAuctionResults_artwork on Artwork {
+fragment OldMyCollectionArtworkArtistAuctionResults_artwork on Artwork {
   internalID
   slug
   artist {
@@ -147,7 +147,7 @@ fragment OldMyCollectionArtworkInsights_artwork on Artwork {
     name
     id
   }
-  ...MyCollectionArtworkArtistAuctionResults_artwork
+  ...OldMyCollectionArtworkArtistAuctionResults_artwork
   ...MyCollectionArtworkArtistArticles_artwork
   ...OldMyCollectionArtworkArtistMarket_artwork
   ...OldMyCollectionArtworkDemandIndex_artwork
@@ -257,7 +257,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "MyCollectionArtworkInsightsTestsQuery",
+    "name": "OldMyCollectionArtworkInsightsTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -299,7 +299,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "MyCollectionArtworkInsightsTestsQuery",
+    "name": "OldMyCollectionArtworkInsightsTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -736,7 +736,7 @@ return {
     ]
   },
   "params": {
-    "id": "ee0c1f7bda890b373da377056f5386fa",
+    "id": "a3ca27cd57515be6348175f306798f9c",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "artwork": {
@@ -884,11 +884,11 @@ return {
         "marketPriceInsights.sellThroughRate": (v12/*: any*/)
       }
     },
-    "name": "MyCollectionArtworkInsightsTestsQuery",
+    "name": "OldMyCollectionArtworkInsightsTestsQuery",
     "operationKind": "query",
     "text": null
   }
 };
 })();
-(node as any).hash = '8d5596cb9afba6134ccf427e61f6e42b';
+(node as any).hash = '7c7656c0f79971e00d335c6363d57e8a';
 export default node;

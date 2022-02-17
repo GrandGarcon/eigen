@@ -7,7 +7,7 @@ import React from "react"
 import { createFragmentContainer, graphql } from "react-relay"
 import { pluralizeMedium } from "../../../../utils/pluralizeArtworkMedium"
 import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollectionArtworkArtistArticles"
-import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
+import { OldMyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./OldMyCollectionArtworkArtistAuctionResults"
 import { OldMyCollectionArtworkArtistMarketFragmentContainer } from "./OldMyCollectionArtworkArtistMarket"
 import { OldMyCollectionArtworkDemandIndexFragmentContainer } from "./OldMyCollectionArtworkDemandIndex"
 
@@ -50,7 +50,7 @@ export const OldMyCollectionArtworkInsights: React.FC<OldMyCollectionArtworkInsi
         </>
       )}
 
-      <MyCollectionArtworkArtistAuctionResultsFragmentContainer artwork={artwork} />
+      <OldMyCollectionArtworkArtistAuctionResultsFragmentContainer artwork={artwork} />
       <MyCollectionArtworkArtistArticlesFragmentContainer artwork={artwork} />
     </>
   )
@@ -66,7 +66,7 @@ export const OldMyCollectionArtworkInsightsFragmentContainer = createFragmentCon
         artist {
           name
         }
-        ...MyCollectionArtworkArtistAuctionResults_artwork
+        ...OldMyCollectionArtworkArtistAuctionResults_artwork
         ...MyCollectionArtworkArtistArticles_artwork
         ...OldMyCollectionArtworkArtistMarket_artwork
         ...OldMyCollectionArtworkDemandIndex_artwork

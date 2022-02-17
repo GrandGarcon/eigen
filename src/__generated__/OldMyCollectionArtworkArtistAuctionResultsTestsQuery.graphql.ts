@@ -1,27 +1,27 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
-/* @relayHash 6aeacf2bb7bdfac8a516a17343e709c2 */
+/* @relayHash e8ed4aeaf0dfaec468a448bb4fdb0a55 */
 
 import { ConcreteRequest } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
-export type MyCollectionArtworkArtistAuctionResultsTestsQueryVariables = {};
-export type MyCollectionArtworkArtistAuctionResultsTestsQueryResponse = {
+export type OldMyCollectionArtworkArtistAuctionResultsTestsQueryVariables = {};
+export type OldMyCollectionArtworkArtistAuctionResultsTestsQueryResponse = {
     readonly artwork: {
-        readonly " $fragmentRefs": FragmentRefs<"MyCollectionArtworkArtistAuctionResults_artwork">;
+        readonly " $fragmentRefs": FragmentRefs<"OldMyCollectionArtworkArtistAuctionResults_artwork">;
     } | null;
 };
-export type MyCollectionArtworkArtistAuctionResultsTestsQuery = {
-    readonly response: MyCollectionArtworkArtistAuctionResultsTestsQueryResponse;
-    readonly variables: MyCollectionArtworkArtistAuctionResultsTestsQueryVariables;
+export type OldMyCollectionArtworkArtistAuctionResultsTestsQuery = {
+    readonly response: OldMyCollectionArtworkArtistAuctionResultsTestsQueryResponse;
+    readonly variables: OldMyCollectionArtworkArtistAuctionResultsTestsQueryVariables;
 };
 
 
 
 /*
-query MyCollectionArtworkArtistAuctionResultsTestsQuery {
+query OldMyCollectionArtworkArtistAuctionResultsTestsQuery {
   artwork(id: "some-slug") {
-    ...MyCollectionArtworkArtistAuctionResults_artwork
+    ...OldMyCollectionArtworkArtistAuctionResults_artwork
     id
   }
 }
@@ -61,7 +61,7 @@ fragment AuctionResultListItem_auctionResult on AuctionResult {
   title
 }
 
-fragment MyCollectionArtworkArtistAuctionResults_artwork on Artwork {
+fragment OldMyCollectionArtworkArtistAuctionResults_artwork on Artwork {
   internalID
   slug
   artist {
@@ -152,7 +152,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "MyCollectionArtworkArtistAuctionResultsTestsQuery",
+    "name": "OldMyCollectionArtworkArtistAuctionResultsTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -165,7 +165,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "MyCollectionArtworkArtistAuctionResults_artwork"
+            "name": "OldMyCollectionArtworkArtistAuctionResults_artwork"
           }
         ],
         "storageKey": "artwork(id:\"some-slug\")"
@@ -178,7 +178,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "MyCollectionArtworkArtistAuctionResultsTestsQuery",
+    "name": "OldMyCollectionArtworkArtistAuctionResultsTestsQuery",
     "selections": [
       {
         "alias": null,
@@ -443,7 +443,7 @@ return {
     ]
   },
   "params": {
-    "id": "6aeacf2bb7bdfac8a516a17343e709c2",
+    "id": "e8ed4aeaf0dfaec468a448bb4fdb0a55",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "artwork": {
@@ -540,11 +540,11 @@ return {
         "artwork.slug": (v6/*: any*/)
       }
     },
-    "name": "MyCollectionArtworkArtistAuctionResultsTestsQuery",
+    "name": "OldMyCollectionArtworkArtistAuctionResultsTestsQuery",
     "operationKind": "query",
     "text": null
   }
 };
 })();
-(node as any).hash = 'c16e41c028e78ada6aad675e538b4182';
+(node as any).hash = '797cdd4e6a40197848956fa1c67ef985';
 export default node;

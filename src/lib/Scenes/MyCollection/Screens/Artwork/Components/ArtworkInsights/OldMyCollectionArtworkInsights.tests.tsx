@@ -1,11 +1,11 @@
-import { MyCollectionArtworkInsightsTestsQuery } from "__generated__/MyCollectionArtworkInsightsTestsQuery.graphql"
+import { OldMyCollectionArtworkInsightsTestsQuery } from "__generated__/OldMyCollectionArtworkInsightsTestsQuery.graphql"
 import { extractText } from "lib/tests/extractText"
 import { renderWithWrappers } from "lib/tests/renderWithWrappers"
 import React from "react"
 import { graphql, QueryRenderer } from "react-relay"
 import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils"
 import { MyCollectionArtworkArtistArticlesFragmentContainer } from "./MyCollectionArtworkArtistArticles"
-import { MyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./MyCollectionArtworkArtistAuctionResults"
+import { OldMyCollectionArtworkArtistAuctionResultsFragmentContainer } from "./OldMyCollectionArtworkArtistAuctionResults"
 import { OldMyCollectionArtworkArtistMarketFragmentContainer } from "./OldMyCollectionArtworkArtistMarket"
 import { OldMyCollectionArtworkDemandIndexFragmentContainer } from "./OldMyCollectionArtworkDemandIndex"
 import { OldMyCollectionArtworkInsightsFragmentContainer } from "./OldMyCollectionArtworkInsights"
@@ -15,10 +15,10 @@ jest.unmock("react-relay")
 describe("MyCollectionArtworkInsights", () => {
   let mockEnvironment: ReturnType<typeof createMockEnvironment>
   const TestRenderer = () => (
-    <QueryRenderer<MyCollectionArtworkInsightsTestsQuery>
+    <QueryRenderer<OldMyCollectionArtworkInsightsTestsQuery>
       environment={mockEnvironment}
       query={graphql`
-        query MyCollectionArtworkInsightsTestsQuery @relay_test_operation {
+        query OldMyCollectionArtworkInsightsTestsQuery @relay_test_operation {
           artwork(id: "some-artwork-id") {
             ...OldMyCollectionArtworkInsights_artwork
           }
@@ -68,7 +68,7 @@ describe("MyCollectionArtworkInsights", () => {
       wrapper.root.findByType(OldMyCollectionArtworkArtistMarketFragmentContainer)
     ).toBeDefined()
     expect(
-      wrapper.root.findByType(MyCollectionArtworkArtistAuctionResultsFragmentContainer)
+      wrapper.root.findByType(OldMyCollectionArtworkArtistAuctionResultsFragmentContainer)
     ).toBeDefined()
     expect(
       wrapper.root.findByType(MyCollectionArtworkArtistArticlesFragmentContainer)

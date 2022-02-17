@@ -47,7 +47,7 @@ export const MyCollectionArtworkArtistMarket: React.FC<MyCollectionArtworkArtist
   const formatLiquidityRank = getFormattedLiquidityRank(liquidityRank)
 
   return (
-    <Flex>
+    <Flex mb={3}>
       <InfoButton
         title="Artist Market"
         subTitle="Based on the last 36 months of auction data"

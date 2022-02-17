@@ -1,10 +1,11 @@
 import { MyCollectionArtworkInsights_artwork$key } from "__generated__/MyCollectionArtworkInsights_artwork.graphql"
 import { MyCollectionArtworkInsights_marketPriceInsights$key } from "__generated__/MyCollectionArtworkInsights_marketPriceInsights.graphql"
 import { StickyTabPageScrollView } from "lib/Components/StickyTabPage/StickyTabPageScrollView"
-import { Flex, Join, Spacer, Text } from "palette/elements"
+import { Flex, Spacer, Text } from "palette/elements"
 import React from "react"
 import { useFragment } from "react-relay"
 import { graphql } from "relay-runtime"
+import { MyCollectionArtworkArtistAuctionResults } from "./Components/ArtworkInsights/MyCollectionArtworkArtistAuctionResults"
 import { MyCollectionArtworkArtistMarket } from "./Components/ArtworkInsights/MyCollectionArtworkArtistMarket"
 import { MyCollectionArtworkDemandIndex } from "./Components/ArtworkInsights/MyCollectionArtworkDemandIndex"
 
@@ -30,16 +31,18 @@ export const MyCollectionArtworkInsights: React.FC<MyCollectionArtworkInsightsPr
     <StickyTabPageScrollView>
       <Flex my={3}>
         <Text variant="lg">Price & Market Insights</Text>
-        <Join separator={<Spacer mb={3} />}>
-          <MyCollectionArtworkDemandIndex
-            artwork={artwork}
-            marketPriceInsights={marketPriceInsights}
-          />
-          <MyCollectionArtworkArtistMarket
-            artwork={artwork}
-            marketPriceInsights={marketPriceInsights}
-          />
-        </Join>
+        <Spacer mb={3} />
+
+        <MyCollectionArtworkDemandIndex
+          artwork={artwork}
+          marketPriceInsights={marketPriceInsights}
+        />
+
+        <MyCollectionArtworkArtistMarket
+          artwork={artwork}
+          marketPriceInsights={marketPriceInsights}
+        />
+        <MyCollectionArtworkArtistAuctionResults artwork={artwork} />
       </Flex>
     </StickyTabPageScrollView>
   )
@@ -52,6 +55,7 @@ const artworkFragment = graphql`
     internalID
     ...MyCollectionArtworkDemandIndex_artwork
     ...MyCollectionArtworkArtistMarket_artwork
+    ...MyCollectionArtworkArtistAuctionResults_artwork
   }
 `
 
