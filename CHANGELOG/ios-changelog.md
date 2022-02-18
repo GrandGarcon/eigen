@@ -1,13 +1,17 @@
 ## Undeployed Changes
 
-### v7.0.0
+### v7.3.0
 
 - Status: **Beta**
 - Changelog:
 
+  - User facing changes:
+
+    - Restore listing of articles not in the editorial feed to fair screen - dimatretyak
+
   - Dev changes:
-    - Do not save the changelog update date - mounir
-    - Track link tap and AuctionResultsForYou Screen - kizito
+    - remove AREnableSortFilterForArtworksPill feature flag - gkartalis
+    - Add generated Relay files to gitignore - ole
 
 <!-- DO NOT CHANGE -->
 
