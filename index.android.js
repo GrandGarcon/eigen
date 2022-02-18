@@ -1,17 +1,17 @@
 global.__TEST__ = false
 global.__STORYBOOK__ = false
 
-// start storybook depending on content of storybook.json
-let startStorybook = false
-
+let metaflags = {
+  startStorybook: false,
+}
 if (__DEV__) {
   try {
-    const fileContent = require("./storybook.json")
-    startStorybook = fileContent.startStorybook
+    const fileContents = require("./metaflags.json")
+    metaflags = { ...metaflags, ...fileContents }
   } catch {}
 }
 
-if (startStorybook) {
+if (metaflags.startStorybook) {
   global.__STORYBOOK__ = true
   require("./src/storybook")
 } else {
